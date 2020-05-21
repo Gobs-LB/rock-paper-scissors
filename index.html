@@ -9,9 +9,7 @@
 
 function askPlayer(){
     let x = prompt("Rock, Paper or Scissors?");
-
     let playerPlay = x.charAt(0).toUpperCase() + x.slice(1);
-    
     return playerPlay
 }
 
@@ -45,7 +43,6 @@ function gameRound(playerSelection, computerSelection){
 function game(){
     playerScore = 0;
     computerScore = 0;
-    scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
 
     while (playerScore + computerScore <= 5){
         if (playerScore + computerScore == 5){
@@ -58,18 +55,22 @@ function game(){
         break;
         }    
         else{
-            console.log(gameRound(askPlayer(), computerPlay()));
-            if (gameRound() == "Tie!"){
+            x = gameRound(askPlayer(), computerPlay())
+            console.log(x);
+            if (x == "Tie!"){
+                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
                 console.log(scoreOutput);
                 console.log("Try again!");
             }
-            else if (gameRound().search("win")){
+            else if (x.includes("win")){
                 playerScore++;
+                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
                 console.log(scoreOutput);
                 console.log("Let's play again!");
             }
             else {
                 computerScore++;
+                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
                 console.log(scoreOutput);
                 console.log("Let's play again!");
             }
@@ -79,6 +80,7 @@ function game(){
 }
 
 game();
+
 
 
 
