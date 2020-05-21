@@ -39,6 +39,9 @@ function gameRound(playerSelection, computerSelection){
     }
 }
 
+
+
+
 function game(){
     playerScore = 0;
     computerScore = 0;
@@ -55,19 +58,18 @@ function game(){
         break;
         }    
         else{
-            gameRound(askPlayer(), computerPlay());
-            console.log(gameRound);
-            if (gameRound == "Tie!"){
+            console.log(gameRound(askPlayer(), computerPlay()));
+            if (gameRound() == "Tie!"){
                 console.log(scoreOutput);
                 console.log("Try again!");
             }
-            else if (gameRound == outcomeGood){
-                playerScore += 1;
+            else if (gameRound().search("win")){
+                playerScore++;
                 console.log(scoreOutput);
                 console.log("Let's play again!");
             }
             else {
-                computerScore += 1;
+                computerScore++;
                 console.log(scoreOutput);
                 console.log("Let's play again!");
             }
