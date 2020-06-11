@@ -5,6 +5,20 @@
 </head>
 <body>
 
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
 <script>
 
 function askPlayer(){
@@ -38,13 +52,12 @@ function gameRound(playerSelection, computerSelection){
 }
 
 
-
-
 function game(){
     playerScore = 0;
     computerScore = 0;
 
-    while (playerScore + computerScore <= 5){
+    while (true /*playerScore + computerScore <= 5*/){
+/*
         if (playerScore + computerScore == 5){
             if (playerScore > computerScore){
                 console.log("You win!!!")
@@ -53,7 +66,9 @@ function game(){
                 console.log("You lose! :(")
             }
         break;
-        }    
+        }   
+*/
+        if(false){}
         else{
             x = gameRound(askPlayer(), computerPlay())
             console.log(x);
