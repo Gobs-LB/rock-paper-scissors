@@ -19,26 +19,26 @@
     </div>
 
 
-    <div id="result">
-        <h2></h2>
+    <div>
+        <h2 id="result"></h2>
     </div>
 
     <div id="score">
         
         <div>
             <h3>User</h3>
-            <h2 id="playerScore"></h2>
+            <h2 id="playerScore">0</h2>
         </div>
 
         <div>
             <h3>PC</h3>
-            <h2 id="computerScore"></h2>
+            <h2 id="computerScore">0</h2>
         </div>
 
     </div>
 
-    <div id="prompt">
-        <h2></h2>
+    <div>
+        <h2 id="prompt"></h2>
     </div>
 
 
@@ -107,23 +107,25 @@ function game(e){
 */
         //else{
             x = gameRound(askPlayer(e), computerPlay())
-            console.log(x);
+            document.getElementById("result").textContent = x;
             if (x == "Tie!"){
-                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
-                console.log(scoreOutput);
-                console.log("Try again!");
+//                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
+//                console.log(scoreOutput);
+                document.getElementById("prompt").textContent = "Try again!";
             }
             else if (x.includes("win")){
                 playerScore++;
-                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
-                console.log(scoreOutput);
-                console.log("Let's play again!");
+                document.getElementById("playerScore").textContent = playerScore;
+//                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
+//                console.log(scoreOutput);
+                document.getElementById("prompt").textContent = "Let's play again!";
             }
             else {
                 computerScore++;
-                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
-                console.log(scoreOutput);
-                console.log("Let's play again!");
+                document.getElementById("computerScore").textContent = computerScore;
+//                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
+//                console.log(scoreOutput);
+                document.getElementById("prompt").textContent = "Let's play again!";      
             }
         //}
     //}    
