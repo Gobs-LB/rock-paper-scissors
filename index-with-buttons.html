@@ -5,18 +5,41 @@
 </head>
 <body>
 
-    <h1>Rock, Paper or Scissors?</h1>
 
-    <button id="Rock" type="button">Rock</button>
+    <div id="main">
+        <h1>Rock, Paper or Scissors?</h1>
+    </div>
 
-    <button id="Paper" type="button">Paper</button>
+    <div id="options">
+        <button id="Rock" type="button">Rock</button>
 
-    <button id="Scissors" type="button">Scissors</button>
+        <button id="Paper" type="button">Paper</button>
+
+        <button id="Scissors" type="button">Scissors</button>
+    </div>
 
 
+    <div id="result">
+        <h2></h2>
+    </div>
 
+    <div id="score">
+        
+        <div>
+            <h3>User</h3>
+            <h2 id="playerScore"></h2>
+        </div>
 
+        <div>
+            <h3>PC</h3>
+            <h2 id="computerScore"></h2>
+        </div>
 
+    </div>
+
+    <div id="prompt">
+        <h2></h2>
+    </div>
 
 
 
@@ -35,7 +58,9 @@ function askPlayer(){
 }
 */
 
-
+function askPlayer(e){
+    return e.target.id;
+}
 
 
 function computerPlay(){
@@ -108,9 +133,7 @@ function game(e){
 const buttons = Array.from(document.getElementsByTagName("button"));
 buttons.forEach(button => button.addEventListener("click", game));
 
-function askPlayer(e){
-    return e.target.id;
-}
+
 
 
 // game();
