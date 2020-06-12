@@ -2,16 +2,67 @@
 <html>
 <head>
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+
+    <div id="main">
+        <h1>Rock, Paper or Scissors?</h1>
+    </div>
+
+    <div id="options">
+        <button id="Rock" type="button">Rock</button>
+
+        <button id="Paper" type="button">Paper</button>
+
+        <button id="Scissors" type="button">Scissors</button>
+    </div>
+
+
+    <div>
+        <h2 id="result"></h2>
+    </div>
+
+    <div id="score">
+        
+        <div>
+            <h3>User</h3>
+            <h2 id="playerScore">0</h2>
+        </div>
+
+        <div>
+            <h3>PC</h3>
+            <h2 id="computerScore">0</h2>
+        </div>
+
+    </div>
+
+    <div>
+        <h2 id="prompt"></h2>
+    </div>
+
+
+
+
+
+
+
+
 <script>
 
+/* Old ask with prompt
 function askPlayer(){
     let x = prompt("Rock, Paper or Scissors?");
     let playerPlay = x.charAt(0).toUpperCase() + x.slice(1);
     return playerPlay
 }
+*/
+
+function askPlayer(e){
+    return e.target.id;
+}
+
 
 function computerPlay(){
     let options = ["Rock", "Paper", "Scissors"]
@@ -37,14 +88,14 @@ function gameRound(playerSelection, computerSelection){
     }
 }
 
+playerScore = 0;
+computerScore = 0;
 
+function game(e){
+    
 
+/*    while (playerScore + computerScore <= 5){
 
-function game(){
-    playerScore = 0;
-    computerScore = 0;
-
-    while (playerScore + computerScore <= 5){
         if (playerScore + computerScore == 5){
             if (playerScore > computerScore){
                 console.log("You win!!!")
@@ -53,35 +104,42 @@ function game(){
                 console.log("You lose! :(")
             }
         break;
-        }    
-        else{
-            x = gameRound(askPlayer(), computerPlay())
-            console.log(x);
+        }   
+*/
+        //else{
+            x = gameRound(askPlayer(e), computerPlay())
+            document.getElementById("result").textContent = x;
             if (x == "Tie!"){
-                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
-                console.log(scoreOutput);
-                console.log("Try again!");
+//                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
+//                console.log(scoreOutput);
+                document.getElementById("prompt").textContent = "Try again!";
             }
             else if (x.includes("win")){
                 playerScore++;
-                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
-                console.log(scoreOutput);
-                console.log("Let's play again!");
+                document.getElementById("playerScore").textContent = playerScore;
+//                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
+//                console.log(scoreOutput);
+                document.getElementById("prompt").textContent = "Let's play again!";
             }
             else {
                 computerScore++;
-                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
-                console.log(scoreOutput);
-                console.log("Let's play again!");
+                document.getElementById("computerScore").textContent = computerScore;
+//                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
+//                console.log(scoreOutput);
+                document.getElementById("prompt").textContent = "Let's play again!";      
             }
-        }
-    }    
+        //}
+    //}    
 
 }
 
-game();
+const buttons = Array.from(document.getElementsByTagName("button"));
+buttons.forEach(button => button.addEventListener("click", game));
 
 
+
+
+// game();
 
 
 
