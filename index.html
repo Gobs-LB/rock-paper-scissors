@@ -94,25 +94,26 @@ computerScore = 0;
 function game(e){
     
 
-/*    while (playerScore + computerScore <= 5){
+    while (playerScore + computerScore <= 5){
 
         if (playerScore + computerScore == 5){
             if (playerScore > computerScore){
-                console.log("You win!!!")
+                document.getElementById("prompt").textContent = "You win!!!"
                 }
             else{
-                console.log("You lose! :(")
+                document.getElementById("prompt").textContent = "You lose! :("
             }
         break;
         }   
-*/
-        //else{
+
+        else{
             x = gameRound(askPlayer(e), computerPlay())
             document.getElementById("result").textContent = x;
             if (x == "Tie!"){
 //                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
 //                console.log(scoreOutput);
                 document.getElementById("prompt").textContent = "Try again!";
+                break
             }
             else if (x.includes("win")){
                 playerScore++;
@@ -120,17 +121,18 @@ function game(e){
 //                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
 //                console.log(scoreOutput);
                 document.getElementById("prompt").textContent = "Let's play again!";
+                break
             }
             else {
                 computerScore++;
                 document.getElementById("computerScore").textContent = computerScore;
 //                scoreOutput = `Player ${playerScore}, Computer ${computerScore}`;
 //                console.log(scoreOutput);
-                document.getElementById("prompt").textContent = "Let's play again!";      
+                document.getElementById("prompt").textContent = "Let's play again!";
+                break    
             }
-        //}
-    //}    
-
+        }
+    }    
 }
 
 const buttons = Array.from(document.getElementsByTagName("button"));
