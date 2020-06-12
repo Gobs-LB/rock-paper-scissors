@@ -12,11 +12,11 @@
     </div>
 
     <div id="options">
-        <button id="Rock" type="button">Rock</button>
+        <button id="Rock" class="button" type="button">Rock</button>
 
-        <button id="Paper" type="button">Paper</button>
+        <button id="Paper" class="button" type="button">Paper</button>
 
-        <button id="Scissors" type="button">Scissors</button>
+        <button id="Scissors" class="button" type="button">Scissors</button>
     </div>
 
 
@@ -42,7 +42,9 @@
         <h2 id="prompt"></h2>
     </div>
 
-
+    <div id="restart">
+        <button id="restartBtn" class="restart" type="button">Restart</button>
+    </div>
 
 
 
@@ -135,8 +137,19 @@ function game(e){
     }    
 }
 
-const buttons = Array.from(document.getElementsByTagName("button"));
+const buttons = Array.from(document.getElementsByClassName("button"));
 buttons.forEach(button => button.addEventListener("click", game));
+
+
+function reset(e){
+    playerScore = 0;
+    computerScore = 0;
+    document.getElementById("playerScore").textContent = playerScore;
+    document.getElementById("computerScore").textContent = computerScore;
+}
+
+const restart = document.getElementById("restartBtn");
+restart.addEventListener("click", reset);
 
 
 
