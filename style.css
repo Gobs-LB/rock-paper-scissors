@@ -1,0 +1,46 @@
+#main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    display: flex;
+    border: 3rem;
+    margin: 3rem;
+    scale: 2;
+}
+
+#result{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#score{
+    display: flex;
+    flex: 2;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#scores{
+    display: flex;
+    flex-direction: column;
+    border: 1rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+#prompt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
